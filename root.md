@@ -1,12 +1,11 @@
 # 本项目适用于 Ubuntu 22.04 LTS
-root用户版本请看[root.md](https://github.com/7aGiven/warp/blob/main/root.md)
 # Ubuntu安装Cloudflare Warp
 卸载后无需重新执行
 ```sh
-curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/cloudflare-client.list
 ```
-安装Cloudflare Warp`sudo apt-get update && sudo apt-get install cloudflare-warp`
+安装Cloudflare Warp`apt-get update && apt-get install cloudflare-warp`
 # warp-cli所需命令介绍
 ```sh
 warp-cli mode <MODE>                    # Set the client's general operating mode
@@ -24,7 +23,7 @@ warp-cli registration license GH7f28p9-9uC726Gw-Y47f1yh9 # 设置WARP+许可证(
 warp-cli connect                                         # 连接WARP服务
 ```
 # 查看Ubuntu监听的tcp端口
-`sudo ss -tlp` -t查看tcp，-l查看LISTEN状态套接字, -p查看套接字关联的进程(-p需要sudo才能查看)
+`ss -tlp` -t查看tcp，-l查看LISTEN状态套接字, -p查看套接字关联的进程
 
 本命令可看到warp-svc进程监听了127.0.0.1:40000
 # 优选IP
