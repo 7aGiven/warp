@@ -1,12 +1,13 @@
 # 本项目适用于 Ubuntu 22.04 LTS
 root用户版本请看[root.md](https://github.com/7aGiven/warp/blob/main/root.md)
 # Ubuntu安装Cloudflare Warp
-卸载后无需重新执行
+仅需执行一次，卸载后无需重新执行
 ```sh
 curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
 ```
-安装Cloudflare Warp`sudo apt-get update && sudo apt-get install cloudflare-warp`
+安装Cloudflare Warp的命令`sudo apt-get update && sudo apt-get install cloudflare-warp`
+卸载后使用此命令重新安装，无需上面2条
 # warp-cli所需命令介绍
 ```sh
 warp-cli mode <MODE>                    # Set the client's general operating mode

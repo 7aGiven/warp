@@ -6,6 +6,7 @@ curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | gpg --yes --dearmor --o
 echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/cloudflare-client.list
 ```
 安装Cloudflare Warp`apt-get update && apt-get install cloudflare-warp`
+卸载后使用此命令重新安装，无需上面2条
 # warp-cli所需命令介绍
 ```sh
 warp-cli mode <MODE>                    # Set the client's general operating mode
